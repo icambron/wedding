@@ -1,0 +1,54 @@
+!!!
+%html
+  %head
+    %title Isaac & Anjali's Wedding
+    = stylesheet_link_tag 'application', media: 'all'
+    = javascript_include_tag 'application'
+    = csrf_meta_tags
+
+    :plain
+      <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+      <!--[if lt IE 9]>
+        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+      <![endif]-->
+
+  %body{"data-spy".to_sym => "scroll", "data-target".to_sym => ".subnav", "data-offset".to_sym => "50"}
+    .navbar.navbar-fixed-top
+      .navbar-inner
+        .container
+
+          %a.btn.btn-navbar{ "data-toggle".to_sym => "collapse", "data-target".to_sym => ".nav-collapse"}
+            %span.icon-bar
+            %span.icon-bar
+            %span.icon-bar
+
+          %a.brand{href: '/'} I & A
+
+          .nav-collapse
+            %ul.nav
+              %li{class: ('active' if @tab && @tab == 'info')}
+                %a{href: '/'}
+                  %i.icon-info-sign
+                  Wedding Info
+              %li{class: ('active' if @tab && @tab == 'rsvp')}
+                %a{href: '/rsvp'}
+                  %i.icon-check
+                  RSVP
+              %li
+                %a{href: '/how_we_met'}
+                  %i.icon-heart
+                  How we met
+              %li
+                %a{href: '/photos'}
+                  %i.icon-picture
+                  Album
+              %li
+                %a{href: '/info/registry'}
+                  %i.icon-gift
+                  Registry
+              %li
+                %a{href: '/info/contact'}
+                  %i.icon-envelope
+                  Contact Us
+
+    %div.container= yield

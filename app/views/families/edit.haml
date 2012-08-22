@@ -1,0 +1,13 @@
+%h1 Edit Family
+
+
+= form_for @family, html: {class: "form-inline"} do |f|
+  = render "family_fields", f: f
+  = f.submit "Save"
+
+%h3 Danger Zone
+
+= form_for @family, method: "delete" do |f|
+  %button.btn.btn-danger
+    %i.icon-trash
+    %span Delete

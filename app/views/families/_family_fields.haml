@@ -1,0 +1,22 @@
+= f.label :name
+= f.text_field :name, class: "input-large"
+
+%h3 Guests
+%table.table-bordered.table-striped#people-list
+  %tr
+    %th Name
+    %th Attending?
+    %th Actions
+  = f.fields_for :people do |builder|
+    %tr.person
+      = builder.hidden_field :_destroy
+      %td
+        = builder.text_field :name, class: "input-large"
+      %td
+        = builder.check_box :attending
+      %td
+        %a.delete-person.btn.btn-danger{href: "#"}
+          %i.icon-trash
+          %span Remove
+
+

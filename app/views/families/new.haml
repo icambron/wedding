@@ -1,0 +1,5 @@
+%h1 New Family
+
+= form_for @family, html: {class: "form-inline"} do |f|
+  = render "family_fields", f: f
+  = f.submit "Create"

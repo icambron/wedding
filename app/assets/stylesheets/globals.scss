@@ -1,0 +1,32 @@
+body {
+  padding-top: 80px;
+}
+
+@media (max-width: 980px) {
+
+  /* Remove any padding from the body */
+  body {
+    padding-top: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-unit {
+
+    h1 {
+      font-size: 35px;
+    }
+
+    h2 {
+      font-size: 16px;
+    }
+
+    h3 {
+      font-size: 12px;
+    }
+  }
+}
+
+section {
+  padding-top: 60px;
+}

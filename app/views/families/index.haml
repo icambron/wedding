@@ -1,0 +1,17 @@
+%a.btn{href: new_family_path}
+  %i.icon-plus
+  %span New Family
+
+%table.table.table-bordered.table-striped
+  %thead
+    %tr
+      %th Name
+      %th Edit
+  %tbody
+    - @families.each do |family|
+      %tr
+        %td= family.name
+        %td
+          %a.btn{href: edit_family_path(family.id)}
+            %i.icon-pencil
+            %span Edit

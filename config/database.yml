@@ -1,0 +1,13 @@
+defaults: &defaults
+  adapter: postgresql
+  host: localhost
+  username: postgres
+
+development:
+  database: wedding_development
+  <<: *defaults
+
+test:
+  database: wedding_test
+  <<: *defaults
+
