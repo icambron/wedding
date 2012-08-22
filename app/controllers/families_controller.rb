@@ -17,18 +17,18 @@ class FamiliesController < ApplicationController
   end
 
   def edit
-    @family = Family.get(params[:id])
-    (4 - @family.people.size).times { @family.people << Person.new}
+    @family = Family.find(params[:id])
+    (4 - @family.people.size).times { @family.people.build}
   end
 
   def update
-    family = Family.get(params[:id])
-    family.update(params[:family])
+    family = Family.find(params[:id])
+    family.update_attributes(params[:family])
     redirect_to action: :index
   end
 
   def destroy
-    Family.get(params[:id]).destroy
+    Family.find(params[:id]).destroy
     redirect_to action: :index
   end
 

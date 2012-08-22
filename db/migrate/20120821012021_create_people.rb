@@ -5,6 +5,7 @@ class CreatePeople < ActiveRecord::Migration
       t.boolean :attending, null: false
       t.string :email
       t.string :fb_id
+      t.integer :family_id
     end
   end
 

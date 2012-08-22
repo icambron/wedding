@@ -9,7 +9,7 @@
     %th Actions
   = f.fields_for :people do |builder|
     %tr.person
-      = builder.hidden_field :_destroy
+      = builder.hidden_field :_destroy, class: "person-destroyer"
       %td
         = builder.text_field :name, class: "input-large"
       %td

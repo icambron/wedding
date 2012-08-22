@@ -3,7 +3,6 @@ $ ->
     $(this)
       .closest('.person')
       .hide()
-      .find("input[name='_delete']")
+      .find(".person-destroyer")
       .val(1)
-    console.log "hi"
     false
