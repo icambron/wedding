@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121023011151) do
+ActiveRecord::Schema.define(:version => 20121023014332) do
 
   create_table "families", :force => true do |t|
     t.string  "name"
@@ -19,11 +19,12 @@ ActiveRecord::Schema.define(:version => 20121023011151) do
   end
 
   create_table "people", :force => true do |t|
-    t.string  "name",      :null => false
-    t.boolean "attending", :null => false
+    t.string  "name",                             :null => false
+    t.boolean "attending",                        :null => false
     t.string  "email"
     t.string  "fb_id"
     t.integer "family_id"
+    t.boolean "user_editable", :default => false, :null => false
   end
 
 end
