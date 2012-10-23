@@ -2,12 +2,12 @@ class FamiliesController < ApplicationController
   #todo - access control
 
   def index
-    @families = Family.all
+    @families = Family.includes(:people)
   end
 
   def new
     @family = Family.new
-    4.times { @family.people << Person.new}
+    2.times { @family.people << Person.new}
   end
 
   def create
@@ -18,7 +18,7 @@ class FamiliesController < ApplicationController
 
   def edit
     @family = Family.find(params[:id])
-    (4 - @family.people.size).times { @family.people.build}
+    (2 - @family.people.size).times { @family.people.build}
   end
 
   def update

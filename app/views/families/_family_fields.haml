@@ -1,15 +1,21 @@
 = f.label :name
 = f.text_field :name, class: "input-large"
 
-%h3 Guests
-%table.table-bordered.table-striped#people-list
-  %thead
-    %tr
-      %th Name
-      %th Attending?
-      %th Actions
-  %tbody
-    = f.fields_for :people do |builder|
-      = render 'person_fields', f: builder
+#responded
+  %h3 Responded
+  = f.label :responded
+  = f.check_box :responded
 
-%p= link_to_add_fields "Add Person", "#people-list tbody", f, :people
+#guests
+  %h3 Guests
+  %table.table-bordered.table-striped#people-list
+    %thead
+      %tr
+        %th Name
+        %th Attending?
+        %th Actions
+    %tbody
+      = f.fields_for :people do |builder|
+        = render 'person_fields', f: builder
+
+  %p= link_to_add_fields "Add Person", "#people-list tbody", f, :people

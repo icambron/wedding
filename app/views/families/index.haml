@@ -6,11 +6,20 @@
   %thead
     %tr
       %th Name
+      %th Responded?
+      %th Attending
+      %th Not Attending
       %th Edit
   %tbody
     - @families.each do |family|
       %tr
         %td= family.name
+        %td
+          %i{class: family.responded ? "icon-ok" : "icon-remove"}
+        %td
+          = family.people.to_a.select{|m| m.attending}.map{|m| m.name}.join(", ")
+        %td
+          = family.people.to_a.select{|m| !m.attending}.map{|m| m.name}.join(", ")
         %td
           %a.btn{href: edit_family_path(family.id)}
             %i.icon-pencil
