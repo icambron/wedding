@@ -3,20 +3,13 @@
 
 %h3 Guests
 %table.table-bordered.table-striped#people-list
-  %tr
-    %th Name
-    %th Attending?
-    %th Actions
-  = f.fields_for :people do |builder|
-    %tr.person
-      = builder.hidden_field :_destroy, class: "person-destroyer"
-      %td
-        = builder.text_field :name, class: "input-large"
-      %td
-        = builder.check_box :attending
-      %td
-        %a.delete-person.btn.btn-danger{href: "#"}
-          %i.icon-trash
-          %span Remove
+  %thead
+    %tr
+      %th Name
+      %th Attending?
+      %th Actions
+  %tbody
+    = f.fields_for :people do |builder|
+      = render 'person_fields', f: builder
 
-
+%p= link_to_add_fields "Add Person", "#people-list tbody", f, :people

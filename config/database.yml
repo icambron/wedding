@@ -5,9 +5,11 @@ defaults: &defaults
 
 development:
   database: wedding_development
+  password: password
   <<: *defaults
 
 test:
   database: wedding_test
+  password: password
   <<: *defaults
 
