@@ -4,8 +4,13 @@
       .span4
         %h1 Isaac & Anjali
         %h2 are getting married. Booya!
-        %h3 May 18, 2012
-        %h3 The Awesome Location
+        %h3 May 18, 2013
+        %h3 Topsfield, MA
+
+        .rsvp-button
+          - if @current_family
+            = link_to "RSVP", {controller: :rsvps, action: :show}, class: "btn btn-primary btn-large"
+
       .span3.hidden-phone
         .thumbnail
           %img{src: '/assets/back_to_back.jpg'}

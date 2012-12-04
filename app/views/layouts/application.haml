@@ -7,7 +7,6 @@
     = csrf_meta_tags
 
     :plain
-      <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
       <!--[if lt IE 9]>
         <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
       <![endif]-->
@@ -31,7 +30,7 @@
                   %i.icon-info-sign
                   Wedding Info
               %li{class: ('active' if @tab && @tab == 'rsvp')}
-                %a{href: '/rsvp'}
+                %a{href: url_for(controller: :rsvps, action: :show)}
                   %i.icon-check
                   RSVP
               %li
@@ -47,8 +46,27 @@
                   %i.icon-gift
                   Registry
               %li
-                %a{href: '/info/contact'}
+                %a{href: url_for(controller: :info, action: :contact)}
                   %i.icon-envelope
                   Contact Us
+
+            %ul.nav.pull-right
+              - if @current_family
+                %li.dropdown
+                  %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
+                    %i.icon-user
+                    = @current_family.name
+                    %i.icon-caret-down
+                  %ul.dropdown-menu
+                    %li
+                      %a{href: url_for(controller: :sessions, action: :log_out)}
+                        %i.icon-signout
+                        Logout
+              - else
+                %li
+                  %a{href: url_for(controller: :sessions, action: :new)}
+                    %i.icon-signin
+                    Login
+
 
     %div.container= yield

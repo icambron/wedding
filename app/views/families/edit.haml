@@ -2,8 +2,11 @@
 
 
 = form_for @family, html: {class: "form-inline"} do |f|
-  = render "family_fields", f: f
-  = f.submit "Save"
+  .container
+    = render "family_fields", f: f
+    = f.submit "Save", class: "btn btn.primary"
+
+= link_to "Become #{@family.name}", {controller: :info, action: :index, become: @family.id}, class: "btn"
 
 %h3 Danger Zone
 

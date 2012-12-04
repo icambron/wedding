@@ -17,6 +17,9 @@ gem 'jquery-rails', '~> 2.0.1'
 
 gem 'sass'
 gem 'haml'
+gem 'oauth2'
+gem 'omniauth'
+gem 'omniauth-facebook'
 gem 'bcrypt-ruby', require: 'bcrypt'
 
 # To use debugger
