@@ -17,7 +17,6 @@ gem 'jquery-rails', '~> 2.0.1'
 
 gem 'sass'
 gem 'haml'
-
 gem 'bcrypt-ruby', require: 'bcrypt'
 
 # To use debugger
