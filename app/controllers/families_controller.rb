@@ -1,5 +1,5 @@
 class FamiliesController < ApplicationController
-  #todo - access control
+  before_filter :require_admin
 
   def index
     @families = Family.includes(:people)
@@ -7,7 +7,7 @@ class FamiliesController < ApplicationController
 
   def new
     @family = Family.new
-    2.times { @family.people << Person.new}
+    2.times { @family.people << Person.new }
   end
 
   def create
@@ -18,7 +18,7 @@ class FamiliesController < ApplicationController
 
   def edit
     @family = Family.find(params[:id])
-    (2 - @family.people.size).times { @family.people.build}
+    (2 - @family.people.size).times { @family.people.build }
   end
 
   def update
@@ -31,5 +31,4 @@ class FamiliesController < ApplicationController
     Family.find(params[:id]).destroy
     redirect_to action: :index
   end
-
 end

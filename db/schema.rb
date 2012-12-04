@@ -11,20 +11,30 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121023014332) do
+ActiveRecord::Schema.define(:version => 20121023044845) do
 
   create_table "families", :force => true do |t|
     t.string  "name"
-    t.boolean "responded", :default => false, :null => false
+    t.boolean "responded",    :default => false, :null => false
+    t.boolean "admin",        :default => false, :null => false
+    t.string  "token_hashed"
+    t.string  "token_salt"
   end
 
   create_table "people", :force => true do |t|
-    t.string  "name",                             :null => false
-    t.boolean "attending",                        :null => false
+    t.string  "name",                                   :null => false
+    t.boolean "attending",                              :null => false
     t.string  "email"
     t.string  "fb_id"
     t.integer "family_id"
-    t.boolean "user_editable", :default => false, :null => false
+    t.boolean "user_editable",       :default => false, :null => false
+    t.string  "fb_nickname"
+    t.string  "fb_uid"
+    t.string  "fb_image"
+    t.string  "fb_token"
+    t.integer "fb_token_expires_at"
+    t.string  "fb_gender"
+    t.string  "fb_email"
   end
 
 end

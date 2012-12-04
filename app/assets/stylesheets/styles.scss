@@ -1,0 +1,29 @@
+.person {
+  margin-top: 20px;
+
+  //todo: fold under person-label class
+  input[type=text] {
+    font-size: 16pt;
+  }
+
+  .person-label {
+    font-size: 16pt;
+  }
+
+}
+
+.rsvp-buttons {
+  margin-top: 20px;
+}
+
+.response {
+  margin-top: 10px;
+  font-size: 16pt;
+  .attending {
+    color: green;
+  }
+
+  .not-attending {
+    color: red;
+  }
+}

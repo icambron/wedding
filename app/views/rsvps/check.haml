@@ -1,0 +1,21 @@
+.row.subheader
+  %h1 Verify your selection
+  %h3 Just to confirm, is this what you meant to tell us:
+
+= form_for @edited_family, url: confirm_rsvp_path, method: :post do |f|
+
+  = f.fields_for :people do |person_fields|
+    = person_fields.hidden_field :temp_id
+    = person_fields.hidden_field :attending
+    = person_fields.hidden_field :name
+    .response.row
+      %p{class: person_fields.object.attending ? "attending" : "not-attending"}
+        %span= person_fields.object.name
+        %span is
+        %span= person_fields.object.attending ? "" : "NOT "
+        %span attending.
+
+  .row
+    %p Is that what you meant?
+    = link_to "Nope, let me change that", {action: :show}, class: "btn btn-danger"
+    = f.submit "Yes, confrim my RSVP", class: "btn btn-primary"

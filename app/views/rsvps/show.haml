@@ -1,0 +1,32 @@
+.row.subheader
+  %h1 RSVP
+
+  %h3
+    %span= "Hi #{current_family.name}! (Not #{current_family.name}? Click "
+    %a{href: "/sessions/log_out"} here
+    %span ).
+
+.row
+  %h2 Your party
+
+= form_for current_family, url: check_rsvp_path, method: :post, html: {class: "form-inline"} do |f|
+  #people-list
+    = f.fields_for :people, include_id: false do |person_fields|
+      = person_fields.hidden_field :temp_id
+      .person.row
+        .span3
+          - if person_fields.object.user_editable
+            %div
+              = person_fields.text_field :name, class: "person-label"
+            %span Tell us this person's name
+          - else
+            = person_fields.hidden_field :name
+            %p.person-label= person_fields.object.name
+        .span2
+          = person_fields.check_box :attending
+          = person_fields.label "Attending"
+        .span
+          %a.btn{href: "#"} Find on Facebook
+
+    .row.rsvp-buttons
+      = f.submit "Next", class: "btn btn-primary"
