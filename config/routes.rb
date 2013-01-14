@@ -13,7 +13,11 @@ Wedding::Application.routes.draw do
 
   resources :sessions do
     collection do
+      get :new
       get :log_out
+      get :unknown_account
+      get :fail
+      get :admin_required
     end
   end
 
@@ -24,4 +28,9 @@ Wedding::Application.routes.draw do
       get :registry
     end
   end
+
+  resources :admin
+
+  match "/auth/:provider/callback", to: "sessions#create"
+  match "/auth/failure", to: "sessions#fail"
 end

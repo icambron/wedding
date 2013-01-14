@@ -15,17 +15,22 @@ class ApplicationController < ActionController::Base
 
   def require_login
     unless family_signed_in?
-      redirect_to controller: :sessions, action: :new
+      redirect_to controller: :sessions, action: :new, from: request.url
+      false
+    else
+      true
     end
   end
 
   def require_admin
-    unless admin?
-      redirect_to controller: :sessions, action: :new
+    if require_login && !admin?
+      redirect_to controller: :sessions, action: :admin_required
     end
   end
 
   def current_family
+
+    return @acting_family if @acting_family
 
     @real_family =
       if params[:iam]

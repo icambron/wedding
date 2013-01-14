@@ -1,6 +1,5 @@
 %h1 Edit Family
 
-
 = form_for @family, html: {class: "form-inline"} do |f|
   .container
     = render "family_fields", f: f
@@ -14,3 +13,12 @@
   %button.btn.btn-danger#delete-family
     %i.icon-trash
     %span Delete
+
+.modal.hide{role: "dialog"}
+  .modal-header
+    %button.close{"data-dismiss" => "modal", type: "button", "aria-hidden" => "true"}
+      = raw "&times;"
+    %h3 Select a Friend
+  .modal-body
+    #fb-friends
+

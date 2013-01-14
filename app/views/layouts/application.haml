@@ -4,7 +4,11 @@
     %title Isaac & Anjali's Wedding
     = stylesheet_link_tag 'application', media: 'all'
     = javascript_include_tag 'application'
+    %script{type: "text/javascript", src: 'http://connect.facebook.net/en_US/all.js'}
     = csrf_meta_tags
+
+    %script
+      var fbAppId = "#{ENV["WEDDING_FACEBOOK_KEY"]}";
 
     :plain
       <!--[if lt IE 9]>
@@ -12,6 +16,7 @@
       <![endif]-->
 
   %body{"data-spy".to_sym => "scroll", "data-target".to_sym => ".subnav", "data-offset".to_sym => "50"}
+    #fb-root
     .navbar.navbar-fixed-top
       .navbar-inner
         .container
@@ -49,6 +54,11 @@
                 %a{href: url_for(controller: :info, action: :contact)}
                   %i.icon-envelope
                   Contact Us
+              - if admin?
+                %li
+                  %a{href: url_for(controller: :admin, action: :index)}
+                    %i.icon-cogs
+                    Admin
 
             %ul.nav.pull-right
               - if @current_family

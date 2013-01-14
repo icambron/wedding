@@ -1,13 +1,18 @@
 %tr.person
   = f.hidden_field :_destroy, class: "person-destroyer"
   %td
-    = f.text_field :name, class: "input-large"
+    = f.text_field :name, class: "input-large name"
   %td
     = f.check_box :attending
   %td
     = f.check_box :user_editable
   %td
-    = f.text_field :fb_nickname
+    = f.text_field :email
+  %td
+    = f.hidden_field :fb_uid, class: 'fb-uid'
+    = f.hidden_field :fb_image, class: 'fb-image'
+    %img{src: f.object.fb_image}
+    %button.btn.fb-picker Choose
   %td
     %a.delete-person.btn.btn-danger{href: "#"}
       %i.icon-trash

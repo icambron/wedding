@@ -1,7 +1,7 @@
 class Family < ActiveRecord::Base
   include BCrypt
 
-  has_many :people, dependent: :destroy
+  has_many :people
   accepts_nested_attributes_for :people, allow_destroy: true, reject_if: ->(p){p[:name].blank?}
   before_save :encrypt_token
   attr_accessor :new_token

@@ -1,1 +1,20 @@
-%p yo, this website is private
+%h1 Logging in
+
+%p There are two ways to log in:
+
+%h2 1. Follow the link we sent you.
+
+%p That link is uniquely built for you and if you click on it, we'll log you in automatically (that's why it's important that you not share it).
+
+%p
+  %span Lost the email? Don't worry; just
+  = link_to "email us", controller: :info, action: :contact
+  %span and we'll send you a brand new one.
+
+%h2 2. Log in with Facebook
+
+%p If you have a Facebook account and--crucially--you're our Facebook friend, you can login using your Facebook account. Neat, right?
+
+%a.btn{href: "/auth/facebook?origin=#{@from}"}
+  %i.icon-facebook
+  %span Login with Facebook

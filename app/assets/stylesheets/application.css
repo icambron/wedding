@@ -1,5 +1,6 @@
 /*
 *= require imports
+*= require_tree ../../../vendor/assets/stylesheets
 *= require_tree ./components
 *= require ./styles
 */

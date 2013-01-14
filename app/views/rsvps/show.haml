@@ -14,6 +14,8 @@
     = f.fields_for :people, include_id: false do |person_fields|
       = person_fields.hidden_field :temp_id
       .person.row
+        .span1
+          %img{src: person_fields.object.fb_image}
         .span3
           - if person_fields.object.user_editable
             %div
@@ -25,8 +27,21 @@
         .span2
           = person_fields.check_box :attending
           = person_fields.label "Attending"
-        .span
-          %a.btn{href: "#"} Find on Facebook
+        - if person_fields.object.user_editable && person_fields.object.fb_uid.blank?
+          .span
+            %button.btn.btn-primary.fb-user-picker
+              %i.icon-facebook
+              %span Find on Facebook
+            = person_fields.hidden_field :fb_uid, class: "fb-uid"
+            = person_fields.hidden_field :fb_image, class: "fb-image"
 
     .row.rsvp-buttons
       = f.submit "Next", class: "btn btn-primary"
+
+.modal.hide{role: "dialog"}
+  .modal-header
+    %button.close{"data-dismiss" => "modal", type: "button", "aria-hidden" => "true"}
+      = raw "&times;"
+    %h3 Select a Friend
+  .modal-body
+    #fb-friends

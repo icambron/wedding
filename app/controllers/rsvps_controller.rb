@@ -29,6 +29,7 @@ class RsvpsController < ApplicationController
     end
 
     current_family.responded = true
+
     current_family.save!
 
   end

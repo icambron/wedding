@@ -11,7 +11,7 @@ class FamiliesController < ApplicationController
   end
 
   def create
-    @family = Family.new(params[:family])
+    @family = Family.new params[:family]
     @family.save
     redirect_to action: :index
   end
@@ -28,7 +28,9 @@ class FamiliesController < ApplicationController
   end
 
   def destroy
-    Family.find(params[:id]).destroy
+    f = Family.find params[:id]
+    f.people.each {|p| p.destroy}
+    f.destroy
     redirect_to action: :index
   end
 end
