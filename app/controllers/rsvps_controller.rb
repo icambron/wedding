@@ -23,7 +23,12 @@ class RsvpsController < ApplicationController
 
       next unless current_person
 
-      current_person.name = person.name if current_person.user_editable
+      if current_person.user_editable
+        current_person.name = person.name
+        current_person.fb_uid = person.fb_uid
+        current_person.fb_image = person.fb_image
+      end
+
       current_person.attending = person.attending
       current_person.save!
     end

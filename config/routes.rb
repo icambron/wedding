@@ -29,6 +29,8 @@ Wedding::Application.routes.draw do
     end
   end
 
+  resources :attendees
+
   resources :admin
 
   match "/auth/:provider/callback", to: "sessions#create"

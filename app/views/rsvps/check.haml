@@ -8,6 +8,8 @@
     = person_fields.hidden_field :temp_id
     = person_fields.hidden_field :attending
     = person_fields.hidden_field :name
+    = person_fields.hidden_field :fb_uid
+    = person_fields.hidden_field :fb_image
     .response.row
       %p{class: person_fields.object.attending ? "attending" : "not-attending"}
         %span= person_fields.object.name

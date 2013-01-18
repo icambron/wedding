@@ -1,0 +1,17 @@
+%h1 Attendees
+
+%p Here's everyone who's RSVP'ed so far. Might be useful for coordinating.
+
+%p It can only be seen by people we invited. If for some reason, you don't want to be listed here, just email us and we'll remove you.
+
+.container
+  - @people.each do |person|
+    .row.person
+      .span1
+        %img{src: person.fb_image.blank? ? "/assets/batman.jpg" : person.fb_image}
+
+      .span2
+        %div
+          %strong= person.name
+        %div
+          %a{href: "mailto:#{person.email}"}= person.email

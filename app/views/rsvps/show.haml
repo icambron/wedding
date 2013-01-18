@@ -15,6 +15,7 @@
       = person_fields.hidden_field :temp_id
       .person.row
         .span1
+          = raw "&nbsp;"
           %img{src: person_fields.object.fb_image}
         .span3
           - if person_fields.object.user_editable
