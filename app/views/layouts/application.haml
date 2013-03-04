@@ -38,11 +38,11 @@
                 %a{href: url_for(controller: :rsvps, action: :show)}
                   %i.icon-check
                   RSVP
-              %li
+              %li{class: ('active' if @tab && @tab == 'how_we_met')}
                 %a{href: '/how_we_met'}
                   %i.icon-heart
                   How we met
-              %li
+              %li{class: ('active' if @tab && @tab == 'photos')}
                 %a{href: '/photos'}
                   %i.icon-picture
                   Album

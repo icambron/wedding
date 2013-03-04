@@ -29,6 +29,9 @@ Wedding::Application.routes.draw do
     end
   end
 
+  resources :how_we_met
+  resources :photos
+
   resources :attendees
 
   resources :admin
