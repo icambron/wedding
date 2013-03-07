@@ -29,7 +29,7 @@ $ ->
 
   FB.init(appId: fbAppId)
 
-  $(".fb-picker").click (e) ->
+  $(document).on "click", ".fb-picker", (e) ->
     $picker = $ @
     $("#fb-friends").fbFriends("show")
     e.stopPropagation()
