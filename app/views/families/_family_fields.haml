@@ -22,3 +22,11 @@
         = render 'person_fields', f: builder
 
   %p= link_to_add_fields "Add Person", "#people-list tbody", f, :people
+
+.modal.hide{role: "dialog"}
+  .modal-header
+    %button.close{"data-dismiss" => "modal", type: "button", "aria-hidden" => "true"}
+      = raw "&times;"
+    %h3 Select a Friend
+  .modal-body
+    #fb-friends
