@@ -55,6 +55,11 @@ class ApplicationController < ActionController::Base
 
     session[:acting_family_id] = @acting_family.id
 
+    if @real_family && !@acting_family && !@real_family.visited
+      @real_family.visited = true
+      @real_family.save!
+    end
+
     @acting_family
 
   end

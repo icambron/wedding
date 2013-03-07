@@ -8,8 +8,8 @@ class InfoController < ApplicationController
     @tab = 'contact'
   end
 
-  def registry
-    @tab = 'registry'
+  def photos
+    @tab = 'photos'
   end
 
 end

@@ -1,24 +1,37 @@
 %h1 Edit Family
 
-= form_for @family, html: {class: "form-inline"} do |f|
-  .container
-    = render "family_fields", f: f
-    = f.submit "Save", class: "btn btn.primary"
+%section
+  = form_for @family, html: {class: "form-inline"} do |f|
+    .container
+      = render "family_fields", f: f
+      = f.submit "Save", class: "btn btn.primary"
 
-= link_to "Become #{@family.name}", {controller: :info, action: :index, become: @family.id}, class: "btn"
+  = link_to "Become #{@family.name}", {controller: :info, action: :index, become: @family.id}, class: "btn"
 
-%h3 Danger Zone
+- if @token
+  %section
+    %h4
+      %span Token
+      %span= @token
 
-= form_for @family, method: "delete" do |f|
-  %button.btn.btn-danger#delete-family
-    %i.icon-trash
-    %span Delete
+%section
+  %h3 Danger Zone
 
-.modal.hide{role: "dialog"}
-  .modal-header
-    %button.close{"data-dismiss" => "modal", type: "button", "aria-hidden" => "true"}
-      = raw "&times;"
-    %h3 Select a Friend
-  .modal-body
-    #fb-friends
+  = form_for @family, method: "post", url: family_rehash_path(@family) do |f|
+    %button.btn.btn-danger#rehash-family
+      %i.icon-unlock
+      %span Reset Link
+
+  = form_for @family, method: "delete" do |f|
+    %button.btn.btn-danger#delete-family
+      %i.icon-trash
+      %span Delete
+
+  .modal.hide{role: "dialog"}
+    .modal-header
+      %button.close{"data-dismiss" => "modal", type: "button", "aria-hidden" => "true"}
+        = raw "&times;"
+      %h3 Select a Friend
+    .modal-body
+      #fb-friends
 

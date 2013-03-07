@@ -33,4 +33,12 @@ class FamiliesController < ApplicationController
     f.destroy
     redirect_to action: :index
   end
+
+  def rehash
+    @family = Family.find params[:family_id]
+    @token = @family.reset_token
+    @family.save
+    render :edit
+  end
+
 end

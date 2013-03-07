@@ -1,7 +1,10 @@
 Wedding::Application.routes.draw do
   root to: "info#index"
 
-  resources :families
+  resources :families do
+    post :rehash
+  end
+
   resources :people
 
   resource :rsvp do
@@ -25,12 +28,12 @@ Wedding::Application.routes.draw do
     collection do
       get :index
       get :contact
-      get :registry
+      get :photos
     end
   end
 
   resources :how_we_met
-  resources :photos
+  resources :registry, controller: "registry"
 
   resources :attendees
 

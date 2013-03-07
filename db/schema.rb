@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130114034218) do
+ActiveRecord::Schema.define(:version => 20130307125022) do
 
   create_table "families", :force => true do |t|
     t.string  "name"
@@ -21,17 +21,13 @@ ActiveRecord::Schema.define(:version => 20130114034218) do
   end
 
   create_table "people", :force => true do |t|
-    t.string  "name",                                   :null => false
-    t.boolean "attending",                              :null => false
+    t.string  "name",                             :null => false
+    t.boolean "attending",                        :null => false
     t.string  "email"
     t.integer "family_id"
-    t.boolean "user_editable",       :default => false, :null => false
+    t.boolean "user_editable", :default => false, :null => false
     t.string  "fb_uid"
     t.string  "fb_image"
-    t.string  "fb_token"
-    t.integer "fb_token_expires_at"
-    t.string  "fb_gender"
-    t.string  "fb_email"
   end
 
 end

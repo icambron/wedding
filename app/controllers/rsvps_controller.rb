@@ -25,8 +25,8 @@ class RsvpsController < ApplicationController
 
       if current_person.user_editable
         current_person.name = person.name
-        current_person.fb_uid = person.fb_uid
-        current_person.fb_image = person.fb_image
+        current_person.fb_uid = person.fb_uid unless person.fb_uid.blank?
+        current_person.fb_image = person.fb_image unless person.fb_image.blank?
       end
 
       current_person.attending = person.attending

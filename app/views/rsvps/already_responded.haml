@@ -18,9 +18,4 @@
     = link_to "Email us.", controller: :info, action: :contact
 
 .row
-  %h3 Other stuff you can do
-  //todo - DRY with confirm.haml
-  %ul
-    %li= link_to "See who else is going", controller: :attendees, action: :index
-    %li= link_to "See info about location/time", controller: :info, action: :index, anchor: "when"
-    %li Learn how we met
+  %h3= link_to "See who else is going", controller: :attendees, action: :index
