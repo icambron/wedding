@@ -8,11 +8,9 @@
 
   = link_to "Become #{@family.name}", {controller: :info, action: :index, become: @family.id}, class: "btn"
 
-- if @token
-  %section
-    %h4
-      %span Token
-      %span= @token
+%section
+  %h4 URL
+  %p= authenticated_url @family
 
 %section
   %h3 Danger Zone

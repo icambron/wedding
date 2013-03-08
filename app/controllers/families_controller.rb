@@ -38,7 +38,7 @@ class FamiliesController < ApplicationController
     @family = Family.find params[:family_id]
     @token = @family.reset_token
     @family.save
-    render :edit
+    redirect_to action: :edit
   end
 
 end

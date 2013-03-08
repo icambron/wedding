@@ -11,13 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130307125022) do
+ActiveRecord::Schema.define(:version => 20130308221002) do
 
   create_table "families", :force => true do |t|
     t.string  "name"
-    t.boolean "responded",    :default => false, :null => false
-    t.boolean "admin",        :default => false, :null => false
-    t.string  "token_hashed"
+    t.boolean "responded", :default => false, :null => false
+    t.boolean "admin",     :default => false, :null => false
+    t.boolean "visited",   :default => false, :null => false
+    t.string  "token"
   end
 
   create_table "people", :force => true do |t|
