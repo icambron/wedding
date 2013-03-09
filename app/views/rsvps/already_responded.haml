@@ -1,21 +1,21 @@
-.row.subheader
+.subheader
   %h1 You've responded!
 
-.row
+%section
   %h3 Here's what we have you down as:
 
-- current_family.people.each do |person|
-  .response.row
-    %p{class: person.attending ? "attending" : "not-attending"}
-      %span= person.name
-      %span is
-      %span= person.attending ? "" : "NOT "
-      %span attending.
+  - current_family.people.each do |person|
+    .response
+      %p{class: person.attending ? "attending" : "not-attending"}
+        %span= person.name
+        %span is
+        %span= person.attending ? "" : "NOT "
+        %span attending.
 
-.row
+%section
   %p
     %span Need to make changes?
     = link_to "Email us.", controller: :info, action: :contact
 
-.row
+%section
   %h3= link_to "See who else is going", controller: :attendees, action: :index
