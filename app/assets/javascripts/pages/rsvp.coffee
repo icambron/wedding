@@ -3,7 +3,8 @@ $ ->
 
   $scope = null
 
-  $("#fb-friends").fbFriends
+  $("#fb-friends-rsvp").fbFriends
+    immediate: false,
     initialize: false,
     login: true,
     whenDone: (friends) -> 
@@ -18,7 +19,8 @@ $ ->
     includeMe: true
 
   $(".fb-user-picker").click (e) ->
-    $scope = $(@).parents(".person")
-    $("#fb-friends").fbFriends "show"
     e.stopPropagation()
     e.preventDefault()
+    $scope = $(@).parents(".person")
+    console.log "scope", $scope
+    $("#fb-friends-rsvp").fbFriends "show"

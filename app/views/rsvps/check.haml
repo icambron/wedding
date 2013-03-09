@@ -1,23 +1,28 @@
 .row.subheader
   %h1 Verify your selection
-  %h3 Just to confirm, is this what you meant to tell us:
 
 = form_for @edited_family, url: confirm_rsvp_path, method: :post do |f|
 
-  = f.fields_for :people do |person_fields|
-    = person_fields.hidden_field :temp_id
-    = person_fields.hidden_field :attending
-    = person_fields.hidden_field :name
-    = person_fields.hidden_field :fb_uid
-    = person_fields.hidden_field :fb_image
-    .response.row
-      %p{class: person_fields.object.attending ? "attending" : "not-attending"}
-        %span= person_fields.object.name
-        %span is
-        %span= person_fields.object.attending ? "" : "NOT "
-        %span attending.
+  %section
+    %h3 Just to confirm, is this what you meant to tell us:
+    = f.fields_for :people do |person_fields|
+      = person_fields.hidden_field :temp_id
+      = person_fields.hidden_field :attending
+      = person_fields.hidden_field :name
+      = person_fields.hidden_field :fb_uid
+      = person_fields.hidden_field :fb_image
+      = person_fields.hidden_field :food
+      .response
+        %p{class: person_fields.object.attending ? "attending" : "not-attending"}
+          %span= person_fields.object.name
+          %span is
+          %span= person_fields.object.attending ? "" : "NOT "
+          %span attending
+          - if person_fields.object.attending
+            %span and eating
+            %span= person_fields.object.food
 
-  .row
+  %section
     %p Is that what you meant?
     = link_to "Nope, let me change that", {action: :show}, class: "btn btn-danger"
     = f.submit "Yes, confirm my RSVP", class: "btn btn-primary"

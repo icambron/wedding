@@ -1,0 +1,16 @@
+%p= "Hi #{@family.name}!"
+
+%p Our wedding is fast approaching and we've decided it's high-time to formally invite you to it. So here it is.
+
+%h3 You're invited to our wedding!
+
+%p May 18, 2013, 6 PM
+%p Topsfield, MA
+%p Reception immediately after
+
+%p To RSVP and for all the information you need (hotel, travel information, guest details, etc), please go here:
+
+%p
+  %a{href: authenticated_url(@family)}= authenticated_url(@family)
+
+%p -Isaac and Anjali

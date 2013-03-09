@@ -1,7 +1,10 @@
 module FamiliesHelper
 
   def authenticated_url(family)
-    "#{root_url}?iam=#{family.id}&secret=#{family.token}"
+
+    options = {host: ENV["WEDDING_HOST"]}
+
+    "#{root_url(options)}?iam=#{family.id}&secret=#{family.token}"
   end
 
 end

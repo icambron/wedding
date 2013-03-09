@@ -34,10 +34,10 @@ Wedding::Application.routes.draw do
 
   resources :how_we_met
   resources :registry, controller: "registry"
-
   resources :attendees
-
   resources :admin
+
+  match "/emails/:template", to: "emails#index"
 
   match "/auth/:provider/callback", to: "sessions#create"
   match "/auth/failure", to: "sessions#fail"

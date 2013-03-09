@@ -14,6 +14,8 @@
     %img{src: f.object.fb_image}
     %button.btn.fb-picker Choose
   %td
+    = f.select :food, [["Mammal", "mammal"], ["Fowl", "fowl"], ["Plant", "plant"]], {}, class: "input-small"
+  %td
     %a.delete-person.btn.btn-danger{href: "#"}
       %i.icon-trash
       %span Remove

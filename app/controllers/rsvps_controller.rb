@@ -29,6 +29,7 @@ class RsvpsController < ApplicationController
         current_person.fb_image = person.fb_image unless person.fb_image.blank?
       end
 
+      current_person.food = person.food
       current_person.attending = person.attending
       current_person.save!
     end
