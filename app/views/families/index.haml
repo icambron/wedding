@@ -7,6 +7,7 @@
     %tr
       %th Name
       %th Responded?
+      %th Visited?
       %th Attending
       %th Not Attending (so far)
       %th Edit
@@ -16,6 +17,8 @@
         %td= family.name
         %td
           %i{class: family.responded ? "icon-ok" : "icon-remove"}
+        %td
+          %i{class: family.visited ? "icon-ok" : "icon-remove"}
         %td
           = family.people.to_a.select{|m| m.attending}.map{|m| m.name}.join(", ")
         %td

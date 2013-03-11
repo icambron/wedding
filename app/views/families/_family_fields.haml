@@ -2,7 +2,9 @@
 = f.text_field :name, class: "input-large"
 
 #responded
-  %h3 Responded
+  %h3 Status
+  = f.label :visited
+  = f.check_box :visited
   = f.label :responded
   = f.check_box :responded
 
