@@ -9,7 +9,11 @@ namespace :wedding do
 
     Family.all.each do |f|
       if f.people.count < 2
-        puts "Family #{f.name} only has #{f.people.count} members"
+        puts "Family #{f.name} only has #{f.people.count} member(s)"
+      end
+
+      if f.people.none?{|p| p.email}
+        puts "Family #{f.name} doesn't have any email addresses"
       end
     end
   end
