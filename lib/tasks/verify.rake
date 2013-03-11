@@ -2,7 +2,7 @@ namespace :wedding do
   task verify: :environment do
     Person.all.each do |p|
 
-      if p.name.match(/guest/i) && !p.name.user_editable
+      if p.name.match(/guest/i) && !p.user_editable
         puts "Person #{p.name} isn't editable"
       end
     end
