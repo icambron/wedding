@@ -8,7 +8,7 @@ class PonyRide
   end
 
   def mail(recipient)
-    return unless recipient.email
+    return if recipient.email.blank?
 
     @family = recipient.family
 

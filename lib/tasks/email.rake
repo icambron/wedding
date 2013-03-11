@@ -10,6 +10,7 @@ namespace :wedding do
       ride = PonyRide.new "Anjali and Isaac's wedding", "invite"
 
       Person.all.each do |u|
+        puts u.name
         ride.mail u
       end
     end
