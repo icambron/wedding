@@ -7,7 +7,7 @@ namespace :wedding do
     end
 
     task invite: :environment do
-      ride = PonyRide.new "test", "invite"
+      ride = PonyRide.new "Anjali and Isaac's wedding", "invite"
 
       Person.all.each do |u|
         ride.mail u
