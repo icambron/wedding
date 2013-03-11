@@ -12,7 +12,7 @@ namespace :wedding do
         puts "Family #{f.name} only has #{f.people.count} member(s)"
       end
 
-      if f.people.none?{|p| !p.email.blank?}
+      if f.people.all?{|p| p.email.blank?}
         puts "Family #{f.name} doesn't have any email addresses"
       end
     end
