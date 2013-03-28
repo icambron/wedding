@@ -3,7 +3,7 @@ namespace :wedding do
 
     task test_invite: :environment do
       u = Person.where(name: "Isaac Cambron").first
-      PonyRide.new("test", "invite").mail(u)
+      PonyRide.new("test", "update1").mail(u)
     end
 
     task invite: :environment do
@@ -14,5 +14,15 @@ namespace :wedding do
         ride.mail u
       end
     end
+
+    task update: :environment do
+      ride = PonyRide.new "Wedding updates", "update1"
+      Person.all.each do |u|
+        puts u.name
+        ride.mail u
+      end
+    end
+
+
   end
 end

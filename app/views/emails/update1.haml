@@ -1,0 +1,21 @@
+%p= "Hi #{@family.name}!"
+
+%p We have a few important updates to give you about our upcoming wedding:
+
+%ul
+  %li
+    %strong RSVP.
+    %span In case you haven't yet, please RSVP by April 14. You can do that here:
+    %a{href: authenticated_url(@family)}= authenticated_url(@family)
+    %span . Just click the RSVP button.
+  %li
+    %strong Hotels.
+    %span The DoubleTree's website claims to be full, but it's not! You just have to call and tell them your with the Cambron/Verghese wedding. We have a whole block of discounted rooms. You can call them at 978-777-2500.
+
+  %li
+    %strong And do stay there.
+    %span We really want to encourage you to stay at the hotel even if you have place to stay in Boston. Danvers is a long ways away, and if you plan on drinking, heading back is going to be a problem. We're providing transportation between the hotel and the venue, so you're all set there.
+
+  %li
+    %strong Hats!
+    %span We'd like to reiterate that you are highly encouraged to wear hats throughout the event.
