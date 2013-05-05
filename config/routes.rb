@@ -1,8 +1,6 @@
 Wedding::Application.routes.draw do
-  if Rails.env.production?
-    match "*path" => redirect("https://www.isaacandanjali.com/%{path}"), :constraints => { :protocol => "http://" }
-    match "*path" => redirect("https://www.isaacandanjali.com/%{path}"), :constraints => { :subdomain => "" }
-  end
+  match "/(*path)" => redirect{|params| "https://www.isaacandanjali.com/#{params[:path]}"}, :constraints => { :protocol => "http://", domain: "isaacandanjali.com" }
+  match "/(*path)" => redirect{|params| "https://www.isaacandanjali.com/#{params[:path]}"}, :constraints => { :subdomain => "", domain: "isaacandanjali.com" }
 
   root to: "info#index"
 
