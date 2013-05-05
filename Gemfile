@@ -20,12 +20,12 @@ gem 'haml'
 gem 'oauth2'
 gem 'omniauth'
 gem 'omniauth-facebook'
-gem 'bcrypt-ruby', require: 'bcrypt'
+gem 'bcrypt-ruby', 'require' => 'bcrypt'
 gem 'pony'
 
 # To use debugger
 # gem 'ruby-debug19', '~> 0.11.6', require: 'ruby-debug'
 
 group :test do
-  gem 'turn', '~> 0.9.4', require: false
+  gem 'turn', '~> 0.9.4', 'require' => false
 end
