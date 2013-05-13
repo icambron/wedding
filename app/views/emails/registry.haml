@@ -1,0 +1,16 @@
+%p= "Hi #{@family.name}!"
+
+%p Here are a few last minute wedding updates. We're sending this email to everyone we invited, so that'll include some of you who unfortunately can't make it, but we thought we'd keep you in th loop anyway.
+
+%ul
+  %li
+    %strong Registry.
+    %span We set up a registry page. It's a bit...unique. You can find it here:
+    %a{href: authenticated_url(@family) + "/gifts"}= authenticated_url(@family) + "/gifts"
+    %span . If you've already gotten us something, or if you just plain don't like the idea, don't sweat it.
+  %li
+    %strong Travel and accommodations.
+    %span If you're having any trouble with travel and accommodations (e.g. you're not sure how you're getting from the airport to the venue), just drop us a line (you can reply to this email). We'll fix you right up.
+  %li
+    %strong Are you sure you don't want meat?
+    %span A lot more of you signed up for the "plant" option than we'd guessed. That's cool and it's going to be delicious (and there's plenty of it). But we're also especially excited about the barbecued pulled pork and chicken. So if you're reconsidering, just email us.
