@@ -9,7 +9,7 @@ class Gift < ActiveRecord::Base
   def submit_and_save
 
     hash = {
-      amount: amount * 100,
+      amount: amount.nil? ? 0 : amount * 100,
       currency: "usd",
       card: {
         name: name,

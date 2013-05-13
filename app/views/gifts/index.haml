@@ -48,4 +48,8 @@
     .controls
       = f.text_field :zip, class: "input-medium"
 
-  = f.submit "Submit", class: "btn btn-primary"
+  = f.submit "Submit", class: "btn btn-primary", id: "gift-submit"
+
+  %span#gift-loader{style: "display:none"}
+    %i.icon-spinner.icon-spin
+    %span Processing
