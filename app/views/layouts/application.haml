@@ -3,8 +3,8 @@
   %head
     %title Isaac & Anjali's Wedding
     = stylesheet_link_tag 'application', media: 'all'
+    %script{type: "text/javascript", src: 'http://connect.facebook.net/en_US/all.js'}
     = javascript_include_tag 'application'
-    %script{type: "text/javascript", src: 'https://connect.facebook.net/en_US/all.js'}
     = csrf_meta_tags
 
     %script
@@ -38,16 +38,12 @@
                 %a{href: url_for(controller: :rsvps, action: :show)}
                   %i.icon-check
                   RSVP
-              %li{class: ('active' if @tab && @tab == 'how_we_met')}
-                %a{href: '/how_we_met'}
-                  %i.icon-heart
-                  How we met
               %li{class: ('active' if @tab && @tab == 'photos')}
                 %a{href: '/info/photos'}
                   %i.icon-picture
                   Album
-              %li
-                %a{href: '/registry'}
+              %li{class: ('active' if @tab && @tab == 'gifts')}
+                %a{href: '/gifts'}
                   %i.icon-gift
                   Registry
               %li

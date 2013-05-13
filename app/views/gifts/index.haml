@@ -1,0 +1,49 @@
+%h2 Help us buy a house!
+
+%p We're both in our thirties, which means we've accumulated a lot stuff. Kitchen gadgets especially. So we're in the awkward position of not really needing new stuff. What we do need to do in the next couple of years is buy a house. And we'd love your help!
+
+%p We totally understand that giving money isn't everyone's cup of tea. If you'd still like to get us something, we'd prefer non-stuff gifts. Take us to dinner. Buy us a massage on our honeymoon. Something like that.
+
+= form_for @gift, html: {class: "form-horizontal"} do |f|
+  - if @gift.errors.any?
+    .alert-danger
+      %strong= pluralize(@gift.errors.count, "error") + " stopped us from processing your gift:"
+      %ul
+        - @gift.errors.full_messages.each do |msg|
+          %li= msg
+
+  .control-group
+    = f.label :amount, "Amount", class: "control-label"
+    .controls
+      .input-prepend.input-append
+        %span.add-on $
+        = f.text_field :amount, class: "input-small"
+        %span.add-on .00
+
+  .control-group
+    = f.label :name, "Name", class: "control-label"
+    .controls
+      = f.text_field :name
+
+  .control-group
+    = f.label :card_number, "Credit Card Number", class: "control-label"
+    .controls
+      = f.text_field :card_number
+
+  .control-group
+    = f.label :card_code, "Security Code (CVV)", class: "control-label"
+    .controls
+      = f.text_field :card_code, class: "input-mini"
+
+  .control-group
+    = f.label :card_month, "Card Expiration", class: "control-label"
+    .controls
+      = select_month @date, {add_month_numbers: true}, {name: "card_month", id: "card_month", class: "input-medium"}
+      = select_year @date, {start_year: Date.today.year, end_year: Date.today.year+15}, {name: "card_year", id: "card_year", class: "input-medium"}
+
+  .control-group
+    = f.label :zip, "Zip Code", class: "control-label"
+    .controls
+      = f.text_field :zip, class: "input-medium"
+
+  = f.submit "Submit", class: "btn btn-primary"

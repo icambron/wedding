@@ -35,8 +35,13 @@ Wedding::Application.routes.draw do
     end
   end
 
+  resources :gifts do
+    collection do
+      get "thanks"
+    end
+  end
+
   resources :how_we_met
-  resources :registry, controller: "registry"
   resources :attendees
   resources :admin
 
