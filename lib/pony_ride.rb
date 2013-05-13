@@ -28,8 +28,7 @@ class PonyRide
       html_body: body,
       via: :smtp,
       via_options: {
-        openssl_verify_mode: OpenSSL::SSL::VERIFY_NONE,
-        address: "smtp.sendgrid.com",
+        address: "smtp.sendgrid.net",
         user_name: ENV['WEDDING_SMTP_USERNAME'],
         password: ENV['WEDDING_SMTP_PASSWORD'],
         authentication: :plain,

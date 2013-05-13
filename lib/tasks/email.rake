@@ -24,7 +24,7 @@ namespace :wedding do
     end
 
     task registry: :environment do
-      ride = PonyRide.new "Wedding updates", "registry"
+      ride = PonyRide.new "More wedding updates", "registry"
       Person.all.each do |u|
         puts u.name
         ride.mail u
