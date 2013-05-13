@@ -1,6 +1,6 @@
 Wedding::Application.routes.draw do
-  match "/(*path)" => redirect{|params| "https://www.isaacandanjali.com/#{params[:path]}"}, :constraints => { :protocol => "http://", domain: "isaacandanjali.com" }
-  match "/(*path)" => redirect{|params| "https://www.isaacandanjali.com/#{params[:path]}"}, :constraints => { :subdomain => "", domain: "isaacandanjali.com" }
+  match "/(*path)" => redirect{|params, req| "https://www.isaacandanjali.com/#{params[:path]}?#{req.query_string}"}, :constraints => { :protocol => "http://", domain: "isaacandanjali.com" }
+  match "/(*path)" => redirect{|params, req| "https://www.isaacandanjali.com/#{params[:path]}?#{req.query_string}"}, :constraints => { :subdomain => "", domain: "isaacandanjali.com" }
 
   root to: "info#index"
 
