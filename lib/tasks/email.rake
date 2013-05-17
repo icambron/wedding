@@ -37,5 +37,6 @@ namespace :wedding do
         puts u.name
         ride.mail u
       end
+    end
   end
 end
