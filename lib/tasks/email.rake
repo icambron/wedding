@@ -31,7 +31,7 @@ namespace :wedding do
       end
     end
 
-    task busses: :environment do
+    task buses: :environment do
       ride = PonyRide.new "Buses", "buses"
       Person.where(attending: true).each do |u|
         puts u.name
