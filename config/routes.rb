@@ -1,6 +1,6 @@
 Wedding::Application.routes.draw do
-  match "/(*path)" => redirect{|params, req| "https://www.isaacandanjali.com/#{params[:path]}?#{req.query_string}"}, :constraints => { :protocol => "http://", domain: "isaacandanjali.com" }
-  match "/(*path)" => redirect{|params, req| "https://www.isaacandanjali.com/#{params[:path]}?#{req.query_string}"}, :constraints => { :subdomain => "", domain: "isaacandanjali.com" }
+  #match "/(*path)" => redirect{|params, req| "https://www.isaacandanjali.com/#{params[:path]}?#{req.query_string}"}, :constraints => { :protocol => "http://", domain: "isaacandanjali.com" }
+  #match "/(*path)" => redirect{|params, req| "https://www.isaacandanjali.com/#{params[:path]}?#{req.query_string}"}, :constraints => { :subdomain => "", domain: "isaacandanjali.com" }
 
   root to: "info#index"
 
@@ -35,11 +35,11 @@ Wedding::Application.routes.draw do
     end
   end
 
-  resources :gifts do
-    collection do
-      get "thanks"
-    end
-  end
+  #resources :gifts do
+  #  collection do
+  #    get "thanks"
+  #  end
+  #end
 
   resources :how_we_met
   resources :attendees
